@@ -1,0 +1,11 @@
+== README ==
+
+This app allows users to:
+
+  - submit a movie
+  - create an account
+  - review a movie
+
+This app allows admins to:
+
+  - regulate user accounts
