@@ -1,6 +1,6 @@
 class Movie < ActiveRecord::Base
 
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   validates :title,
     presence: true
@@ -18,8 +18,12 @@ class Movie < ActiveRecord::Base
   validate :release_date_is_in_the_past
 
   def review_average
-    reviews.sum(:rating_out_of_ten)/reviews.size
-    # if reviews ? reviews.sum(:rating_out_of_ten)/reviews.size : "No reviews yet"
+    if reviews.any? 
+      (reviews.sum(:rating_out_of_ten)/reviews.size).to_s + "/10"
+    else 
+      "No Reviews Yet!"
+    end
+
   end
 
   protected
