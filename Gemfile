@@ -39,6 +39,6 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'debugger', group: [:development, :test]
 
 # Allow uploading of pictures
-gem "rmagick"
-gem "carrierwave"
+gem 'carrierwave', '~> 0.10.0'
+gem 'mini_magick', '~> 4.3'
 
