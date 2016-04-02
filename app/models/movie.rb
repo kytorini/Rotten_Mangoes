@@ -10,12 +10,16 @@ class Movie < ActiveRecord::Base
     numericality: { only_integer: true }
   validates :description,
     presence: true
-  validates :poster_image_url,
+  # validates :poster_image_url,
+  #   presence: true
+  validates :image, 
     presence: true
   validates :release_date,
     presence: true
 
   validate :release_date_is_in_the_past
+
+  mount_uploader :image, ImageUploader
 
   def review_average
     if reviews.any? 
